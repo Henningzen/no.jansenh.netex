@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PublicationDelivery xmlns="http://www.netex.org.uk/netex" xmlns:gis="http://www.opengis.net/gml/3.2" xmlns:siri="http://www.siri.org.uk/siri" version="1.15:NO-NeTEx-networktimetable:1.5">
+    <PublicationTimestamp>2024-12-02T00:00:59.288</PublicationTimestamp>
+    <ParticipantRef>RB</ParticipantRef>
+    <Description>Florø-Barekstad-Batalden-Fanøy-Rognaldsvåg-Kinn</Description>
+    <dataObjects>
+        <CompositeFrame created="2024-11-25T12:21:26.809" version="1" id="SOF:CompositeFrame:15054543">
+            <validityConditions>
+                <AvailabilityCondition version="1" id="SOF:AvailabilityCondition:15053863">
+                    <FromDate>2024-11-29T00:00:00</FromDate>
+                    <ToDate>2025-12-01T00:00:00</ToDate>
+                </AvailabilityCondition>
+            </validityConditions>
+            <codespaces>
+                <Codespace id="sof">
+                    <Xmlns>SOF</Xmlns>
+                    <XmlnsUrl>http://www.rutebanken.org/ns/sof</XmlnsUrl>
+                </Codespace>
+                <Codespace id="nsr">
+                    <Xmlns>NSR</Xmlns>
+                    <XmlnsUrl>http://www.rutebanken.org/ns/nsr</XmlnsUrl>
+                </Codespace>
+            </codespaces>
+        </CompositeFrame>
+    </dataObjects>
+</PublicationDelivery>
