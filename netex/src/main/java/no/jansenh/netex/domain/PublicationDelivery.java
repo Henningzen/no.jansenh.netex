@@ -3,9 +3,9 @@ package no.jansenh.netex.domain;
 import java.util.Date;
 
 /**
- * <em>Parser</em>
+ * <em>PublicationDelivery domain object.</em>
  *
- * <p>Parser implementation for NeTEx version =1.15:NO-NeTEx-networktimetable:1.5</p>
+ * <p>NeTEx version =1.15:NO-NeTEx-networktimetable:1.5</p>
  *
  * @since 0.1.0 2024-12-22
  * @author <a href="mailto:henningzen@jansenh.no">Henning Jansen</a>
@@ -35,24 +35,20 @@ public class PublicationDelivery {
       private String description = null;
 
       // Fluent setters
-      public Builder setVersion(String version) {
+      public void setVersion(String version) {
         this.version = version;
-        return this;
       }
 
-      public Builder setPublicationTimestamp(Date publicationTimestamp) {
+      public void setPublicationTimestamp(Date publicationTimestamp) {
         this.publicationTimestamp = publicationTimestamp;
-        return this;
       }
 
-      public Builder setParticipantRef(String participantRef) {
+      public void setParticipantRef(String participantRef) {
         this.participantRef = participantRef;
-        return this;
       }
 
-      public Builder setDescription(String description) {
+      public void setDescription(String description) {
         this.description = description;
-        return this;
       }
 
       public PublicationDeliveryRecord build() {
