@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Utilities {
-  
+
   private final Map<String, String> xmlFiles = new HashMap<>();
 
   private Utilities() {
@@ -16,7 +16,7 @@ public class Utilities {
     return new Utilities();
   }
 
-  public  Map<String, String> getXmlFiles() {
+  public Map<String, String> getXmlFiles() {
     return xmlFiles;
   }
 }

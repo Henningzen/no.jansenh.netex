@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * <em>PublicationDelivery domain object.</em>
  *
- * <p>NeTEx version =1.15:NO-NeTEx-networktimetable:1.5</p>
+ * <p>NeTEx version =1.15:NO-NeTEx-networktimetable:1.5
  *
  * @since 0.1.0 2024-12-22
  * @author <a href="mailto:henningzen@jansenh.no">Henning Jansen</a>
@@ -14,18 +14,13 @@ import java.util.Date;
 public class PublicationDelivery {
 
   public record PublicationDeliveryRecord(
-      String version,
-      Date publicationTimestamp,
-      String participantRef,
-      String description
-  ) {
-      private PublicationDeliveryRecord(Builder builder) {
+      String version, Date publicationTimestamp, String participantRef, String description) {
+    private PublicationDeliveryRecord(Builder builder) {
       this(
           builder.version,
           builder.publicationTimestamp,
           builder.participantRef,
-          builder.description
-      );
+          builder.description);
     }
 
     public static class Builder {

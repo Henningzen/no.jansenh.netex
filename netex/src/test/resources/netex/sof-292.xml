@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PublicationDelivery xmlns="http://www.netex.org.uk/netex" xmlns:gis="http://www.opengis.net/gml/3.2" xmlns:siri="http://www.siri.org.uk/siri" version="1.15:NO-NeTEx-networktimetable:1.5">
+<PublicationDelivery xmlns="http://www.netex.org.uk/netex"
+                     version="1.15:NO-NeTEx-networktimetable:1.5">
     <PublicationTimestamp>2024-12-02T00:00:59.288</PublicationTimestamp>
     <ParticipantRef>RB</ParticipantRef>
     <Description>Florø-Barekstad-Batalden-Fanøy-Rognaldsvåg-Kinn</Description>

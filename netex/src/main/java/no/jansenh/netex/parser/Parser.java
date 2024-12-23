@@ -1,28 +1,26 @@
 package no.jansenh.netex.parser;
 
-import no.jansenh.netex.domain.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamReader;
-import java.io.FileInputStream;
-import java.text.SimpleDateFormat;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import no.jansenh.netex.domain.*;
 
 /**
  * <em>Parser</em>
  *
- * <p>Parser implementation for NeTEx version =1.15:NO-NeTEx-networktimetable:1.5</p>
+ * <p>Parser implementation for NeTEx version =1.15:NO-NeTEx-networktimetable:1.5
  *
- * <p>
- *   <em>Known limitations</em>
- *   <ul>
- *     <li>Not properly tested.</li>
- *     <li>Logging not provided.</li>
- *   </ul>
- * </p>
+ * <p><em>Known limitations</em>
+ *
+ * <ul>
+ *   <li>Not properly tested.
+ *   <li>Logging not provided.
+ * </ul>
  *
  * @since 0.1.0 2024-12-22
  * @author <a href="mailto:henningzen@jansenh.no">Henning Jansen</a>
@@ -31,10 +29,14 @@ import java.util.List;
 public class Parser {
 
   private final File file;
+  private final List<String> codespaces = new ArrayList<>();
   private PublicationDelivery.PublicationDeliveryRecord publicationDeliveryRecord;
   private CompositeFrame.CompositeFrameRecord compositeFrameRecord;
   private AvailabilityCondition.AvailabilityConditionRecord availabilityConditionRecord;
-  private final List<String> codespaces = new ArrayList<>();
+
+  public Parser(File file) {
+    this.file = file;
+  }
 
   public PublicationDelivery.PublicationDeliveryRecord getPublicationDeliveryRecord() {
     return publicationDeliveryRecord;
@@ -50,10 +52,6 @@ public class Parser {
 
   public List<String> getCodespaces() {
     return codespaces;
-  }
-
-  public Parser(File file) {
-    this.file = file;
   }
 
   public void parse() {
@@ -90,7 +88,9 @@ public class Parser {
               break;
             case "CompositeFrame":
               compositeFrameBuilder.setId(reader.getAttributeValue(null, "id"));
-              compositeFrameBuilder.setCreated(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(reader.getAttributeValue(null, "created")));
+              compositeFrameBuilder.setCreated(
+                  new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+                      .parse(reader.getAttributeValue(null, "created")));
               compositeFrameBuilder.setVersion(reader.getAttributeValue(null, "version"));
               break;
             case "AvailabilityCondition":
@@ -98,18 +98,20 @@ public class Parser {
               availabilityCondition.setVersion(reader.getAttributeValue(null, "version"));
               break;
             case "FromDate":
-              availabilityCondition.setFromDate(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(reader.getElementText()));
+              availabilityCondition.setFromDate(
+                  new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(reader.getElementText()));
               break;
             case "ToDate":
-              availabilityCondition.setToDate(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(reader.getElementText()));
+              availabilityCondition.setToDate(
+                  new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(reader.getElementText()));
               break;
             case "Codespace":
               codespaces.add(reader.getAttributeValue(null, "id"));
             default:
               break;
-            }
           }
         }
+      }
 
     } catch (Exception e) {
       e.printStackTrace();
